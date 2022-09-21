@@ -1,0 +1,113 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+-- additional information about "client_encoding" in:
+-- http://www.postgresql.org/docs/9.6/static/multibyte.html
+\encoding WIN1250
+;
+
+
+
+---------------------------------
+DROP VIEW IF EXISTS v1_dataset;
+DROP VIEW IF EXISTS v1;
+DROP VIEW IF EXISTS v1_aux;
+DROP TABLE IF EXISTS HEADERS_AUX;
+
+---------------------------------
+
+
+-- complete the following view in order to build
+-- the output data presented below at [OUT]
+--V1
+CREATE VIEW v1_aux AS
+Select
+     ''||p.npatient as npatient
+	,case
+		when Extract(year from Age(CURRENT_TIMESTAMP ,p.birthdate)) <35 then 'young'
+		when Extract(year from Age(CURRENT_TIMESTAMP ,p.birthdate)) <45 then 'pre-presbyopic'
+		Else 'presbyopic'
+	end as Age
+	, DIAGNOSIS.tearRate 
+	, DISEASE.diseaseName
+from PATIENT as p
+
+LEFT OUTER JOIN DIAGNOSIS
+ON DIAGNOSIS.npatient = p.npatient
+AND DIAGNOSIS.date=(Select date from DIAGNOSIS as d where d.npatient = p.npatient Order By d.date DESC Limit 1)
+
+LEFT OUTER JOIN DISEASE
+ON DISEASE.diagnosis_id = (Select id from DIAGNOSIS as d where d.npatient = p.npatient Order By d.date DESC Limit 1)
+and DISEASE.diseaseName!='astigmatic'
+
+;
+
+
+CREATE VIEW v1( nPatient, age, tear_rate, prescription, astigmatic, lenses) AS
+SELECT v1_aux.*
+	,case
+			when DISEASE.diseaseName ='astigmatic' then 'yes'
+			Else 'no'
+		end as astigmatic
+	, l.typeLenses
+fROM v1_aux
+
+LEFT OUTER JOIN DISEASE
+ON DISEASE.diagnosis_id = (Select id from DIAGNOSIS as d where cast (d.npatient as varchar(255)) = v1_aux.npatient Order By d.date DESC Limit 1)
+and DISEASE.diseaseName='astigmatic'
+
+LEFT OUTER JOIN LENSES AS l
+ON l.diagnosis_id = (Select id from DIAGNOSIS as d where cast (d.npatient as varchar(255)) = v1_aux.npatient Order By d.date DESC Limit 1)
+
+order by age desc
+;
+
+
+
+
+
+--Headers
+CREATE TABLE HEADERS_AUX(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ), 
+c3 VARCHAR( 255 ), 
+c4 VARCHAR( 255 ),
+c5 VARCHAR( 255 ), 
+c6 VARCHAR( 255 ))
+;
+
+INSERT INTO HEADERS_AUX( c1, c2, c3, c4, c5, c6 )
+VALUES ( 'discrete', 'discrete', 'discrete', 'discrete', 'discrete', 'discrete' );
+INSERT INTO HEADERS_AUX( c1, c2, c3, c4, c5, c6 )
+VALUES ( 'ignore', '', '', '', '', 'class' );
+;
+
+
+
+CREATE OR REPLACE VIEW v1_dataset( Patient_Number, Age, Tear_Rate, Prescription, Astigmatic, Lenses ) AS
+SELECT * FROM HEADERS_AUX
+UNION all
+SELECT * FROM V1
+;
+
+select * from HEADERS_AUX;
+select * from V1;
+select * from V1_dataset;
+
+
+

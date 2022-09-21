@@ -1,0 +1,16 @@
+# first, launch a "Command Prompt" Window
+
+# then, to start working, "activate" the virtual-environment
+> C:\myApp\Orange\"Orange Command Prompt.lnk"
+
+# now, change to your working directory (e.g., ModuleOfPractice_03_Orange)
+> cd (...)\ModuleOfPractice_03_Orange
+
+# either, execute a specific python file (e.g., a01_datasetRead.py)
+> python a01_datasetRead.py
+
+# or, launch python editor (IDLE)
+> python -m idlelib.idle
+
+# finally, after finishing working, "deactivate" the virtual-environment
+> C:\myApp\Orange\Scripts\deactivate

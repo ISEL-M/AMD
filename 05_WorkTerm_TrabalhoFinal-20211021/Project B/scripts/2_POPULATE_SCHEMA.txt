@@ -1,0 +1,35 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+---------------------------------
+DELETE FROM table_sample;
+DELETE FROM table_complete;
+---------------------------------
+
+SET CLIENT_ENCODING TO 'utf8';
+COPY table_complete(tracking_record_id, date_time, user_gui, campaign_id, product_gui, company, link, tracking_id, meio, ip, browser, session_id, referer, cookie_id)
+FROM 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\Project B\z_dataset_JAN_updated.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+COPY table_sample(tracking_record_id, date_time, user_gui, campaign_id, product_gui, company, link, tracking_id, meio, ip, browser, session_id, referer, cookie_id)
+FROM 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\Project B\z_datasetSample_JAN.csv'
+DELIMITER ','
+CSV HEADER;

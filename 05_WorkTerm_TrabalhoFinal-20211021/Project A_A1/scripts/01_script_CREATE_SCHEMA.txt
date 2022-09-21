@@ -1,0 +1,187 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+-------------------------------
+-- create the relational schema
+-------------------------------
+DROP TABLE IF EXISTS LENSES;
+DROP TABLE IF EXISTS DISEASE;
+DROP TABLE IF EXISTS DIAGNOSIS;
+DROP TABLE IF EXISTS PATIENT;
+DROP TABLE IF EXISTS DOCTOR;
+--------------------------------
+
+CREATE TABLE LENSES
+(
+    typeLenses VARCHAR( 30 ) NOT NULL
+)
+;
+
+
+CREATE TABLE DISEASE
+(
+    diseaseName VARCHAR( 30 ) NOT NULL
+)
+;
+
+
+CREATE TABLE DIAGNOSIS
+(
+    id serial NOT NULL,
+    date timestamp NOT NULL default CURRENT_TIMESTAMP,
+    tearRate VARCHAR( 30 ) NOT NULL DEFAULT 'normal'
+)
+;
+
+
+CREATE TABLE DOCTOR
+(
+    nDoctor serial NOT NULL,
+    name VARCHAR( 30 ) NOT NULL
+)
+;
+
+
+CREATE TABLE PATIENT
+(
+    nPatient serial NOT NULL,
+    name VARCHAR( 30 ) NOT NULL,
+    birthDate DATE NOT NULL
+)
+;
+
+
+
+
+
+
+
+
+
+----------------------------
+-- relationship attributes
+----------------------------
+
+-- DOCTOR -> PATIENT
+ALTER TABLE PATIENT
+    ADD nDoctor INT NOT NULL
+;
+
+
+-- PATIENT -> DIAGNOSIS
+ALTER TABLE DIAGNOSIS
+    ADD nPatient INT NOT NULL
+;
+
+
+-- DIAGNOSIS -> DISEASE
+ALTER TABLE DISEASE
+    ADD diagnosis_id int NOT NULL
+;
+
+
+-- DIAGNOSIS -> LENSES
+ALTER TABLE LENSES
+    ADD diagnosis_id int NOT NULL 
+;
+
+
+
+
+
+
+
+
+
+-------------------------------
+-- entity integrity constraints
+-- (primary key and unique)
+-------------------------------
+ALTER TABLE DOCTOR
+ADD CONSTRAINT pk_DOCTOR
+    PRIMARY KEY( nDoctor )
+;
+
+
+ALTER TABLE PATIENT
+ADD CONSTRAINT pk_PATIENT
+    PRIMARY KEY( nPatient )
+;
+
+
+ALTER TABLE DISEASE
+ADD CONSTRAINT pk_DISEASE
+    PRIMARY KEY( diagnosis_id, diseaseName )
+;
+
+
+ALTER TABLE LENSES
+ADD CONSTRAINT pk_LENSES
+    PRIMARY KEY( diagnosis_id, typeLenses )
+;
+
+
+ALTER TABLE DIAGNOSIS
+ADD CONSTRAINT pk_DIAGNOSIS
+    PRIMARY KEY( id )
+;
+
+ALTER TABLE DIAGNOSIS
+ADD CONSTRAINT U_DIAGNOSIS
+    UNIQUE( date, npatient )
+;
+
+
+
+
+
+
+
+
+
+----------------------------------------
+-- referential integrity constraints
+-- (foreign key)
+----------------------------------------
+
+ALTER TABLE PATIENT
+ADD CONSTRAINT fk1_PATIENT
+    FOREIGN KEY( nDoctor )
+    REFERENCES DOCTOR( nDoctor )
+;
+
+
+ALTER TABLE DIAGNOSIS
+ADD CONSTRAINT fk1_DIAGNOSIS
+    FOREIGN KEY( nPatient )
+    REFERENCES PATIENT( nPatient )
+;
+
+ALTER TABLE LENSES
+ADD CONSTRAINT fk1_LENSES
+    FOREIGN KEY( diagnosis_id )
+    REFERENCES DIAGNOSIS( id )
+;
+
+ALTER TABLE DISEASE
+ADD CONSTRAINT fk1_DISEASE
+    FOREIGN KEY( diagnosis_id )
+    REFERENCES DIAGNOSIS( id )
+;

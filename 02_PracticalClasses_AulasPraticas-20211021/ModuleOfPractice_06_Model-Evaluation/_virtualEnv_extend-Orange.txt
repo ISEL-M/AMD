@@ -1,0 +1,15 @@
+# first, launch a "Command Prompt" Window
+
+# then, to start working, "activate" the virtual-environment
+> C:\myApp\Orange\"Orange Command Prompt.lnk"
+
+# now, update the pip tool (within the virtual environment)
+> python -m pip install --upgrade pip
+(notice the final message: "Successfully installed pip-...")
+
+# then, install pandas
+> pip install pandas==0.16.0
+(Note: I tried a more recent version but then I would need to install the VisualC++ compiler!)
+
+# finally, launch IDLE
+> python -m idlelib.idle

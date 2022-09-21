@@ -1,0 +1,10 @@
+
+"distribution_01_PostgreSQL.zip" is over than 100MB so it can't be shared via moodle.
+
+You may get the file directly from the PostgreSQL site:
+> https://www.postgresql.org/download/
+
+OR
+
+You may get the "distribution_01_PostgreSQL.zip" file from:
+> https://iselpt-my.sharepoint.com/:u:/g/personal/paulo_trigo_isel_pt/EVic_wNgCApDphszJjHp73UBwb6Glfx5vQaxiMc9KgDZLw

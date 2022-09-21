@@ -1,0 +1,115 @@
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+DROP VIEW
+
+
+
+ total_events 
+--------------
+           63
+(1 row)
+
+
+
+ total_number_of_cookies 
+-------------------------
+                      29
+(1 row)
+
+
+
+CREATE VIEW
+              cookie_id               |         session_id         | number_of_events_per_session 
+--------------------------------------+----------------------------+------------------------------
+ bc7e5e60-f715-43c0-bd49-be3c1aee6755 | nqou1i7g761dkoq7cjq1ul9785 |                           12
+ bc7e5e60-f715-43c0-bd49-be3c1aee6755 | 89qd63l1qb56t8fhaf3fts82p5 |                           10
+ 108779d6-093c-4224-a8f2-6777e140aa14 | 1804vgqeol0po5mudfrae5fjt0 |                            8
+ 59c77449-67e8-4de9-b4e1-095fe84b1254 | 6cpv6gpeo1re7s9ne8jkjbvm83 |                            3
+ cd81dcbd-efed-4bef-9a5e-724ceb65e886 | 49ebv4pc90gp0b6ebje1npl610 |                            3
+ 736f45e0-4271-4efc-9b58-3450ed0d000c | cs1igit0u5ap1rq4oqsud63nu5 |                            2
+ dd9fca41-f51d-4e22-ada3-00c964bfcf88 | p5o0r6jek8rbaisnan2qoqh9v7 |                            2
+ 036b5c3e-0334-4f2a-81a2-c24e0dfa8148 | 3a61a2dpb2bobbs92levc43j66 |                            1
+ 1612884d-58da-406a-b007-33983e82adac | od0ka26s2kire63m6c77s3rdl3 |                            1
+ 167d5318-49d2-4421-962b-6b6ad3aadd15 | mar3laqvinqcl46j4og64paak1 |                            1
+ 22aeaff4-9791-44ae-b220-c6fa8e98e4f8 | 0up8uaf6cafv0121i3kcs85616 |                            1
+ 2f8dfa48-f9d9-4f04-8d97-d645b0b4947e | m80lha659jmg1qlc3r630qjqv4 |                            1
+ 31311b70-78c0-471f-ba2e-269f00b29a04 | umkk748spvrbecgof3vit830m6 |                            1
+ 3c91ed3c-042b-44b9-9d7f-c36ce740562a | 405dmadbnqfktm4k5j0pks3om7 |                            1
+ 5f3e9da7-0bb4-4cc4-8de7-89b44a1023d3 | ci06ae4atc9u0dfun1n7nv1ie5 |                            1
+ 693a6f46-7cf5-4cd7-8933-97dcca1d6fdf | bfi071h6ar7domu7mnndtjg1m5 |                            1
+ 6e403e72-500b-458d-aa35-b4c4373c73bc | n1msd84bd0r096uiimu8il48j7 |                            1
+ 6f689646-1920-48ad-8df4-4fe540db5308 | ga12i0djvqq9libkd1t4macfi4 |                            1
+ 74627039-ec27-47de-bc53-aea9af77c57f | gto8ua4s9inf3nk0rbr18srs40 |                            1
+ 74d4145d-cf6f-4b43-b9e6-4fbc35ec41cc | h7eai0bifok668t767mvj2jki4 |                            1
+ 8bd84281-57a2-4e51-acea-87d6e2e5a20f | a1ils3inahkk684lhh586glvk4 |                            1
+ a3f81e24-a1d0-4cd7-9d34-e9603f7fb95c | feaponedcoofdpg04h75u5ibq2 |                            1
+ ab0e01ea-e0eb-4480-a3ee-0497045ef15a | isua0solovk9s62cmbp1thf8p0 |                            1
+ b016522e-b282-4478-aa7a-8174b7406d83 | g2fq5ajaaulcnadf2tdkj0bhh0 |                            1
+ b60c0896-35fd-495d-958b-9ebf25791305 | 51gi4j1us7lb0a9e1cbsvk13a5 |                            1
+ bb13c83e-8668-4982-b4ea-ecf31e5fdf07 | 05o5118bk5fiqgm7j40a58nbu1 |                            1
+ c77f1c88-2911-47f1-8e50-b4a58aa92df4 | itctriv4fcb62598eg1a3684j5 |                            1
+ d3dfe2b7-a365-4337-9189-110b6ad854aa | thci44amqft12urje29f0jvrv6 |                            1
+ dfe5bf3c-6f8b-49ec-8170-b75d3a26bd50 | 1piil9ld1khrt6oo53k9cofft5 |                            1
+ e597aa70-c8fc-4102-bc97-f76f2ebbae0e | f6bggufsdv9vk9sm030erac453 |                            1
+(30 rows)
+
+
+
+CREATE VIEW
+              cookie_id               | number_of_sessions | number_of_events 
+--------------------------------------+--------------------+------------------
+ bc7e5e60-f715-43c0-bd49-be3c1aee6755 |                  2 |               22
+ 108779d6-093c-4224-a8f2-6777e140aa14 |                  1 |                8
+ 59c77449-67e8-4de9-b4e1-095fe84b1254 |                  1 |                3
+ cd81dcbd-efed-4bef-9a5e-724ceb65e886 |                  1 |                3
+ 736f45e0-4271-4efc-9b58-3450ed0d000c |                  1 |                2
+ dd9fca41-f51d-4e22-ada3-00c964bfcf88 |                  1 |                2
+ 036b5c3e-0334-4f2a-81a2-c24e0dfa8148 |                  1 |                1
+ 1612884d-58da-406a-b007-33983e82adac |                  1 |                1
+ 167d5318-49d2-4421-962b-6b6ad3aadd15 |                  1 |                1
+ 22aeaff4-9791-44ae-b220-c6fa8e98e4f8 |                  1 |                1
+ 2f8dfa48-f9d9-4f04-8d97-d645b0b4947e |                  1 |                1
+ 31311b70-78c0-471f-ba2e-269f00b29a04 |                  1 |                1
+ 3c91ed3c-042b-44b9-9d7f-c36ce740562a |                  1 |                1
+ 5f3e9da7-0bb4-4cc4-8de7-89b44a1023d3 |                  1 |                1
+ 693a6f46-7cf5-4cd7-8933-97dcca1d6fdf |                  1 |                1
+ 6e403e72-500b-458d-aa35-b4c4373c73bc |                  1 |                1
+ 6f689646-1920-48ad-8df4-4fe540db5308 |                  1 |                1
+ 74627039-ec27-47de-bc53-aea9af77c57f |                  1 |                1
+ 74d4145d-cf6f-4b43-b9e6-4fbc35ec41cc |                  1 |                1
+ 8bd84281-57a2-4e51-acea-87d6e2e5a20f |                  1 |                1
+ a3f81e24-a1d0-4cd7-9d34-e9603f7fb95c |                  1 |                1
+ ab0e01ea-e0eb-4480-a3ee-0497045ef15a |                  1 |                1
+ b016522e-b282-4478-aa7a-8174b7406d83 |                  1 |                1
+ b60c0896-35fd-495d-958b-9ebf25791305 |                  1 |                1
+ bb13c83e-8668-4982-b4ea-ecf31e5fdf07 |                  1 |                1
+ c77f1c88-2911-47f1-8e50-b4a58aa92df4 |                  1 |                1
+ d3dfe2b7-a365-4337-9189-110b6ad854aa |                  1 |                1
+ dfe5bf3c-6f8b-49ec-8170-b75d3a26bd50 |                  1 |                1
+ e597aa70-c8fc-4102-bc97-f76f2ebbae0e |                  1 |                1
+(29 rows)
+
+
+
+CREATE VIEW
+ number_of_cookies | number_of_sessions 
+-------------------+--------------------
+                 1 |                  2
+                28 |                  1
+(2 rows)
+
+
+
+CREATE VIEW
+ number_of_events_per_session | number_of_cookies 
+------------------------------+-------------------
+                           12 |                 1
+                           10 |                 1
+                            8 |                 1
+                            3 |                 2
+                            2 |                 2
+                            1 |                23
+(6 rows)
+

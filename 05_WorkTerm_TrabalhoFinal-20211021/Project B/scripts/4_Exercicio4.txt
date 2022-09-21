@@ -1,0 +1,76 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+-- additional information about "client_encoding" in:
+-- http://www.postgresql.org/docs/9.6/static/multibyte.html
+\encoding utf8
+;
+
+
+
+---------------------------------
+DROP VIEW IF EXISTS v2_dataset;
+DROP TABLE IF EXISTS HEADERS_AUX;
+DROP VIEW IF EXISTS v1_dataset;
+
+---------------------------------
+
+CREATE VIEW v1_dataset AS
+SELECT CAST(t1.tracking_record_id as VARCHAR(255)) ,t1.user_gui, t1.campaign_id, t1.product_gui, t1.company, t1.link, t1.session_id, t1.cookie_id
+FROM table_complete as t1 
+INNER JOIN (Select cookie_id
+	FROM table_complete
+	GROUP by cookie_id
+	HAVING COUNT(session_id) BETWEEN 5 AND 30) as t2
+ON t1.cookie_id = t2.cookie_id
+;
+
+
+
+
+
+--Headers
+CREATE TABLE HEADERS_AUX(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ),
+c3 VARCHAR( 255 ), 
+c4 VARCHAR( 255 ), 
+c5 VARCHAR( 255 ),
+c6 VARCHAR( 255 ),
+c7 VARCHAR( 255 ), 
+c8 VARCHAR( 255 ))
+;
+
+INSERT INTO HEADERS_AUX
+VALUES ( 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text');
+INSERT INTO HEADERS_AUX
+VALUES ( '', '', '', '', '', '', '', '');
+;
+
+
+
+CREATE OR REPLACE VIEW v2_dataset( tracking_record_id, user_gui, campaign_id, product_gui, company, link, session_id, cookie_id) AS
+SELECT * FROM HEADERS_AUX
+UNION all
+SELECT * FROM v1_dataset
+;
+
+
+
+
+

@@ -1,0 +1,12 @@
+b)
+Para um valor alpha inicial de 0.7, podemos observar que ao aumentar o numero maximo de epoch o valor do erro vai diminuindo,
+no entanto a relação entre o numero total de epoch e o erro total é apresentado por uma função exponencial negativa. Assim, sendo, podemos
+concluir que ter um numero elevado de epoch nao é suficiente para baixar o erro para 0.
+
+c)
+Inicialmente utilizou-se um codebook com dimenção 10, para o qual a relação acima mencionada continua a ser é apresentado por uma
+função exponencial negativa. Ao aumentar a dimenção do codebook, é possivel ver que o erro total diminui drasticamente,
+pois quanto maior for a dimençãodo codebook, maior é a probabilidade de encontrar uma distancia menor, e por consequente um menor erro.
+Para testr elevou-se o tamanho da codebook para 100, onde é possivel observar que se obtem um erro total de 0, com apenas 3 epoch.
+
+É importante encontrar uma boa reação entre o numero de epoch e a dimenção do codebook.

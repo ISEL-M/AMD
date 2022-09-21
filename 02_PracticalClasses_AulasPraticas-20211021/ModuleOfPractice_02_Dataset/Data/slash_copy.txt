@@ -1,0 +1,6 @@
+Patient Number	Age	Tear Rate	Prescription	Astigmatic	Lenses
+discrete	discrete	discrete	discrete	discrete	discrete
+					class
+1	young	normal	hypermetrope	\N	none
+2	pre-presbyopic	normal	hypermetrope	astigmatic	soft
+3	presbyopic	reduced	\N	\N	hard

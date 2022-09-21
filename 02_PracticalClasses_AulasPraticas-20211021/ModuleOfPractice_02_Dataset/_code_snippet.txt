@@ -1,0 +1,31 @@
+
+-- within a psql connection session
+
+\set filePath 'C:/folder/dump.txt'
+-- redirects the STDOUT into :filePath
+\o :filePath
+
+-- using SQL
+-- executes in the "server scope"; thus, may have permission limitations
+COPY ( SELECT * FROM v1 )
+-- TO 'C:/folder/dump.txt' -- may have write permission problem
+TO STDOUT  -- will write to redirected STDOUT (value of :filePath; cf., statement above)
+WITH ( FORMAT CSV, HEADER TRUE, DELIMITER E'\t' )
+;
+
+
+
+-- an alternative approach using psql \COPY
+-- executes within client scope and therefore dos not have the server permissions limitation
+psql \COPY ( SELECT * FROM v1 ) TO 'C:\folder\dump.txt' WITH DELIMITER E'\t' CSV HEADER
+
+
+psql dbname -F , –no-align -c “SELECT * FROM table”
+
+
+-- additional information
+-- http://www.postgresql.org/docs/9.2/static/sql-copy.html
+
+-- additional information 
+-- http://orange.biolab.si/doc/tutorial/load-data/
+

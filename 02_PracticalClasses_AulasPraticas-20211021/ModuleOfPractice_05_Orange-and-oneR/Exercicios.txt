@@ -1,0 +1,22 @@
+2-
+b)
+all of the variables are equally distributed trhoughout all of their possible values exept Lense, where most people dont need lenses.
+d)
+by selecting the variable tear_rate, we get that 12 people have normal tear.
+by splitting by lenses we get that 3 of the people with normal tear rate dont have lenses.
+3/12 = 0.25
+
+3-
+a)
+total de lines = 24 
+
+missing:
+age = 4 (4/24=16.7%)
+prescription = 0 (0/24 = 0%)
+astigmatic = 0 (0/24 = 0%)
+tear_rate = 1 (1/24 = 4.2%)
+lenses = 2 (2/24 = 8.4%)
+
+f)
+Tal como podemos observar of valores obtidos são os esperados da alinea anterior.
+De acordo com os resultados da aula relativa ao 1R, podemos concluir que o codigo realiza exatamente o esperado.

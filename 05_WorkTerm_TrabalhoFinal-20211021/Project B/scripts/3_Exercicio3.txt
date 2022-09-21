@@ -1,0 +1,72 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+
+--===========================================================================
+--===========================================================================
+--===========================================================================
+
+SELECT COUNT(*) as totalevents_jan_2012 
+FROM table_complete;
+
+--===========================================================================
+--===========================================================================
+--===========================================================================
+
+SELECT COUNT(DISTINCT cookie_id) as totalnumberofvisitors_cookie_id_jan_2012
+FROM table_complete;
+
+--===========================================================================
+--===========================================================================
+--===========================================================================
+
+SELECT COUNT(t.numberofsessions) as numberofvisitors, numberofsessions 
+FROM 
+	(SELECT
+		Count(Distinct session_id) as numberofsessions 
+	FROM public.table_complete
+	Group by cookie_id
+	)as t
+Group by t.numberofsessions 
+ORDER BY t.numberofsessions;
+
+--===========================================================================
+--===========================================================================
+--===========================================================================
+
+SELECT numberofeventspersession, count(cookie_id) as numberofvisitors 
+FROM 
+	(SELECT
+		Count(Distinct tracking_record_id) as numberofeventspersession,
+	 	cookie_id
+	FROM public.table_complete
+	Group by session_id, cookie_id
+	)as t
+Group by numberofeventspersession 
+ORDER BY numberofeventspersession;
+
+--===========================================================================
+--===========================================================================
+--===========================================================================
+
+SELECT *
+FROM 
+	(SELECT
+	 	cookie_id,
+	 	count(Distinct session_id)as c1,
+	 	count(tracking_record_id) as c2
+	FROM public.table_complete
+	Group by cookie_id
+	)as t
+where c1=18

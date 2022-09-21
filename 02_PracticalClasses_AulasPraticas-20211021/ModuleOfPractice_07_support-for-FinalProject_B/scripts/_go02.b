@@ -1,0 +1,1 @@
+_go 02_script_IMPORT_POPULATE_SCHEMA.txt

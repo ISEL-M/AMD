@@ -1,0 +1,11 @@
+      vc1       |      vc2       |    vc3    |     vc4      |    vc5     |   vc6    
+----------------+----------------+-----------+--------------+------------+----------
+ Patient Number | Age            | Tear Rate | Prescription | Astigmatic | Lenses
+ discrete       | discrete       | discrete  | discrete     | discrete   | discrete
+                |                |           |              |            | class
+ 1              | young          | normal    | hypermetrope |            | none
+ 2              | pre-presbyopic | normal    | hypermetrope | astigmatic | soft
+ 3              | presbyopic     | reduced   |              |            | hard
+(6 rows)
+
+COPY 6

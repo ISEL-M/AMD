@@ -1,0 +1,54 @@
+036b5c3e-0334-4f2a-81a2-c24e0dfa8148;/spy_pen/prod840.html?gclid=COvYlNDGra0CFYQLfAodnWyeoQ
+108779d6-093c-4224-a8f2-6777e140aa14;/?gclid=COXthpzJra0CFYEhtAod7lDzGw
+108779d6-093c-4224-a8f2-6777e140aa14;Stock Off
+108779d6-093c-4224-a8f2-6777e140aa14;RC
+108779d6-093c-4224-a8f2-6777e140aa14;Stock Off
+108779d6-093c-4224-a8f2-6777e140aa14;Estilo
+108779d6-093c-4224-a8f2-6777e140aa14;Jogos
+108779d6-093c-4224-a8f2-6777e140aa14;Divertimento
+108779d6-093c-4224-a8f2-6777e140aa14;Tecnologia
+1612884d-58da-406a-b007-33983e82adac;/customer/account/login/
+167d5318-49d2-4421-962b-6b6ad3aadd15;display.product*ljv_0054*Relógio Desportivo Espião com Câmara de Filmar 
+2f8dfa48-f9d9-4f04-8d97-d645b0b4947e;/customer/account/login/
+31311b70-78c0-471f-ba2e-269f00b29a04;Tecnologia
+3c91ed3c-042b-44b9-9d7f-c36ce740562a;/catalog/products.php?cat=6
+5f3e9da7-0bb4-4cc4-8de7-89b44a1023d3;/customer/account/forgotpassword/
+6e403e72-500b-458d-aa35-b4c4373c73bc;/customer/account/login/
+6f689646-1920-48ad-8df4-4fe540db5308;display.product*ljv_0054*Relógio Desportivo Espião com Câmara de Filmar 
+736f45e0-4271-4efc-9b58-3450ed0d000c;Spy
+736f45e0-4271-4efc-9b58-3450ed0d000c;/catalog/products.php?cat=6&gclid=CM6U1KLDra0CFUhrfAodhFdTnQ
+74627039-ec27-47de-bc53-aea9af77c57f;/customer/account/login/
+74d4145d-cf6f-4b43-b9e6-4fbc35ec41cc;display.product*ljv_0457*Esmagador de Latas - Can Crusher
+8bd84281-57a2-4e51-acea-87d6e2e5a20f;/destaques/prod1103.html
+a3f81e24-a1d0-4cd7-9d34-e9603f7fb95c;display.product*ljv_0014*Balança Digital para Malas - Essencial para não pagar excesso de bagagem no aeroporto
+ab0e01ea-e0eb-4480-a3ee-0497045ef15a;/customer/account/login/
+b016522e-b282-4478-aa7a-8174b7406d83;display.product*ljv_0436*HD HERO2 - Outdoor Edition
+b60c0896-35fd-495d-958b-9ebf25791305;/?gclid=CJfSianEra0CFZMhtAodWC3Vug
+bb13c83e-8668-4982-b4ea-ecf31e5fdf07;/customer/account/login/
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.category*homepage
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4509*Bota com Stiletto Dourado e aplicações de Pêlo e Swarovski -  Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4402*Sabrinas em Pelo Preto e Cristais Swarovski - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Sabrinas e Mocassins
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Botins
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4118*Botins em Camurça Azul Intenso e detalhes Dourados - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.category*homepage
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4007*Pumps em Pele com aplicação de Flor em Cristais Swarovski  - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.category*homepage
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4118*Botins em Camurça Azul Intenso e detalhes Dourados - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Botins
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4102*Botins em pele Castanha e cristais de Swarovski e pêlo - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Botins
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Sabrinas e Mocassins
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4402*Sabrinas em Pelo Preto e Cristais Swarovski - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Botas
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4207*Botas Cavaleiro em Pele Preta - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4211*Galochas em Castanho Chocolate - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4211*Galochas em Castanho Chocolate - Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;Botas
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4214*Botas em Pele Taupe  e Detalhes Cruzados Luís Onofre
+bc7e5e60-f715-43c0-bd49-be3c1aee6755;display.product*lon_4216*Botas Cavaleiro em Pele Camel - Luís Onofre
+c77f1c88-2911-47f1-8e50-b4a58aa92df4;/customer/account/login/
+cd81dcbd-efed-4bef-9a5e-724ceb65e886;/?gclid=CKrBwsDGra0CFVQLfAod0AOzmA
+cd81dcbd-efed-4bef-9a5e-724ceb65e886;Tecnologia
+cd81dcbd-efed-4bef-9a5e-724ceb65e886;display.category*homepage
+d3dfe2b7-a365-4337-9189-110b6ad854aa;/customer/account/login/

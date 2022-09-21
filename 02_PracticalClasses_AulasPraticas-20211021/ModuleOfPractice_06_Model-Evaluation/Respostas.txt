@@ -1,0 +1,28 @@
+2.
+    a) the code will show the fisrt 10 instances of the data.
+    b) set func_datasetLoader to None
+    c) if func_datasetLoader is none it will load a dataset named fileName. Feature name is an array os feature names we want to use,
+    otherwise it will load all
+
+3.
+    a) the holdout method will split the dataset into 2 groups, one to train, and one to test, where 1/3 of the data will be used to
+    test. the instances in each group are randomly selected.
+    b) to have a 50/50 split we just have to set the test_size to '1/2'
+    c) this method is very similar to the holdout method however it tries to guarantee that each class is properly represented in all data.
+    in this specific case if we set it to have a 50/50 split each group will have an odd number os instances, so it cant guarantee that each
+    class is properly represented in all data.
+----d) the repeated_stratified_holdout tecnique is an evolution of the 
+
+4.
+    a) os metodos fold_split dividem o dataset em k subsets e assim os metodos holdout irão ser aplicados k vezes. Os metodos leave_p_out
+    testão todos os sets, distintos, em que o subset de treino contem n-p elemento e o subset de teste contem p elementos.
+
+7.
+    g) o "no true samples" irá aparaecer quando alguns dos elementos da classe de teste nao se encontram na classe previstas, enqquanto o
+    "no predicted samples" irá aparaecer quando o numero de elementos corretamente previstos da classe de prevista é 0.
+    h) o "no true samples" são lançados por "recall" e "f1_score", pois o recall calcula proporção de positivos corretamente previsto
+    de entre todos os positivos, e o F1_score, pois este apresenta  o balanço enter a precision e o recall, assim sendo caso o reccal seja 0
+    o "f1_score tambem irá apresentar o warning.
+    i) o "no predicted samples" são lançados por "precision" e "f1_score", pois o precision calcula proporção de positivos corretamente previsto
+    de entre todas as previsões positivas, e o F1_score, pois este apresenta  o balanço enter a precision e o recall, assim sendo caso o reccal seja 0
+    o "f1_score tambem irá apresentar o warning.

@@ -1,0 +1,76 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+-------------------------------
+-- create the relational schema
+-------------------------------
+DROP TABLE IF EXISTS table_sample;
+DROP TABLE IF EXISTS table_complete;
+--------------------------------
+
+CREATE TABLE table_sample(
+	tracking_record_id int NOT NULL,
+	date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+	user_gui VARCHAR,
+	campaign_id VARCHAR,
+	product_gui VARCHAR NOT NULL,
+	company VARCHAR NOT NULL,
+	link VARCHAR,
+	tracking_id VARCHAR NOT NULL,
+	meio VARCHAR NOT NULL,
+	ip VARCHAR NOT NULL,
+	browser VARCHAR NOT NULL,
+	session_id VARCHAR NOT NULL,
+	referer VARCHAR,
+	cookie_id VARCHAR NOT NULL
+);
+
+CREATE TABLE table_complete(
+	tracking_record_id int NOT NULL,
+	date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+	user_gui VARCHAR,
+	campaign_id VARCHAR,
+	product_gui VARCHAR NOT NULL,
+	company VARCHAR NOT NULL,
+	link VARCHAR,
+	tracking_id VARCHAR NOT NULL,
+	meio VARCHAR NOT NULL,
+	ip VARCHAR NOT NULL,
+	browser VARCHAR NOT NULL,
+	session_id VARCHAR NOT NULL,
+	referer VARCHAR,
+	cookie_id VARCHAR NOT NULL
+);
+
+
+
+
+-------------------------------
+-- entity integrity constraints
+-- (primary key and unique)
+-------------------------------
+ALTER TABLE table_sample
+ADD CONSTRAINT pk_sample
+	PRIMARY KEY (tracking_record_id) 
+;
+ALTER TABLE table_complete
+ADD CONSTRAINT pk_complete
+	PRIMARY KEY (tracking_record_id) 
+;

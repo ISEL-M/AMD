@@ -1,0 +1,7 @@
+6.j)
+The difference between the domain attributes and the domain variables is the column Lenses
+Even though this column is and attribute it is not a variable because its the class label, which represents the output.
+
+6.k)
+Os commentarios seguintes irão apresentars no terminal a informação relativa ás variaveis e á classe e as respetivas possibilidades de valor.
+Em adição irá apresentar os primeiros 20 tupulos da tabela

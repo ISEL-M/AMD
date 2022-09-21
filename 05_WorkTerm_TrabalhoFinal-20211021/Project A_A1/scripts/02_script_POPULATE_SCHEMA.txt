@@ -1,0 +1,283 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+---------------------------------
+DELETE FROM LENSES;
+DELETE FROM DISEASE;
+DELETE FROM DIAGNOSIS;
+DELETE FROM PATIENT;
+DELETE FROM DOCTOR;
+---------------------------------
+
+
+
+-- DOCTOR
+INSERT INTO DOCTOR( nDoctor, Name )
+VALUES ( 1, 'Doctor1' )
+;
+
+INSERT INTO DOCTOR( nDoctor, Name )
+VALUES ( 2, 'Doctor2' )
+;
+
+INSERT INTO DOCTOR( nDoctor, Name )
+VALUES ( 3, 'Doctor3' )
+;
+
+INSERT INTO DOCTOR( nDoctor, Name )
+VALUES ( 4, 'Doctor4' )
+;
+
+
+
+-- PATIENT
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 1, 1, 'Patient1', '12/11/2020');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 2, 1, 'Patient2', '12/11/2020');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 3, 1, 'Patient3', '12/11/2020');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 4, 1, 'Patient4', '12/11/2020');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 5, 1, 'Patient5', '12/11/2020');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 6, 1, 'Patient6', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 7, 1, 'Patient7', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 8, 1, 'Patient8', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 9, 1, 'Patient9', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 10, 1, 'Patient10', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 11, 1, 'Patient11', '12/11/1970');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 12, 2, 'Patient12', '12/11/1978');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 13, 2, 'Patient13', '12/11/1978');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 14, 2, 'Patient14', '12/11/1978');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 15, 2, 'Patient15', '12/11/1978');
+;
+INSERT INTO PATIENT( nPatient, nDoctor, name, birthdate )
+VALUES ( 16, 2, 'Patient16', '12/11/1978');
+;
+
+
+
+-- DIAGNOSIS
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 1, CURRENT_TIMESTAMP(0), 'normal', 1 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 2, CURRENT_TIMESTAMP(0), 'normal', 2 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 3, CURRENT_TIMESTAMP(0), 'reduced', 3 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 4, CURRENT_TIMESTAMP(0), 'normal', 4 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 5, CURRENT_TIMESTAMP(0), 'reduced', 5 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 6, CURRENT_TIMESTAMP(0), 'reduced', 6 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 7, CURRENT_TIMESTAMP(0), 'normal', 7 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 8, CURRENT_TIMESTAMP(0), 'reduced', 8 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 9, CURRENT_TIMESTAMP(0), 'normal', 9 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 10, CURRENT_TIMESTAMP(0), 'normal', 10 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 11, CURRENT_TIMESTAMP(0), 'reduced', 11 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 12, CURRENT_TIMESTAMP(0), 'reduced', 12 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 13, CURRENT_TIMESTAMP(0), 'normal', 13 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 14, CURRENT_TIMESTAMP(0), 'normal', 14 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 15, CURRENT_TIMESTAMP(0), 'normal', 15 );
+;
+INSERT INTO DIAGNOSIS( id, date, tearRate, npatient )
+VALUES ( 16, CURRENT_TIMESTAMP(0), 'normal', 16 );
+;
+
+
+
+
+
+
+-- DIAGNOSIS
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 1, 'myope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 1,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 2, 'myope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 3, 'hypermetrope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 3,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 4,'hypermetrope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 5,'hypermetrope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 6, 'myope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 6,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 7, 'myope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 7,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 8, 'hypermetrope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 8,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 9,'hypermetrope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 9,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 10,'hypermetrope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 11, 'hypermetrope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 12, 'hypermetrope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 12,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 13, 'myope' );
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 13,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 14,'myope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 15,'hypermetrope');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 15,'astigmatic');
+;
+INSERT INTO DISEASE( diagnosis_id, diseaseName )
+VALUES ( 16,'hypermetrope');
+;
+
+
+
+-- LENSES
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 1, 'hard' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 2, 'soft' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 3, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 4, 'soft' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 5, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 6, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 7, 'hard' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 8, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 9, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 10, 'soft' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 11, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 12, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 13, 'hard' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 14, 'soft' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 15, 'none' );
+;
+INSERT INTO LENSES( diagnosis_id, typeLenses )
+VALUES ( 16, 'soft' );
+;

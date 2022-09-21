@@ -1,0 +1,92 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+---------------------------------
+DELETE FROM R2;
+DELETE FROM R3;
+DELETE FROM R1;
+DELETE FROM R4;
+---------------------------------
+
+
+
+-- r1
+INSERT INTO r1( c1, c2, c3 )
+VALUES ( 1, 'aaa111', 'bbb111' )
+;
+
+INSERT INTO r1( c1, c2, c3 )
+VALUES ( 2, 'aaa222', 'bbb222' )
+;
+
+INSERT INTO r1( c1, c2, c3 )
+VALUES ( 3, 'aaa333', 'bbb333' )
+;
+
+INSERT INTO r1( c1, c2, c3 )
+VALUES ( 4, 'aaa444', 'bbb444' )
+;
+
+
+
+-- r2
+INSERT INTO r2( c1, c1_r1, c2, c3 )
+VALUES ( '111', 1, 'xxx111', 'yyy111' );
+;
+
+INSERT INTO r2( c1, c1_r1, c2, c3 )
+VALUES ( '222', 2, 'xxx222', 'yyy222' );
+;
+
+INSERT INTO r2( c1, c1_r1, c2, c3 )
+VALUES ( '333', 3, 'xxx333', 'yyy333' );
+;
+
+
+
+-- r4
+INSERT INTO r4( c1 )
+VALUES ( 10 );
+;
+
+INSERT INTO r4( c1 )
+VALUES ( 20 );
+;
+
+INSERT INTO r4( c1 )
+VALUES ( 30 );
+;
+
+
+
+-- r3
+INSERT INTO R3( C1_R1, C1_R4, C1 )
+VALUES( 1, 10, '2012-1-31' )
+;
+
+INSERT INTO R3( C1_R1, C1_R4, C1 )
+VALUES( 1, 20, '2012-2-28' )
+;
+
+INSERT INTO R3( C1_R1, C1_R4, C1 )
+VALUES( 2, 20, '2012-3-31' )
+;
+
+
+

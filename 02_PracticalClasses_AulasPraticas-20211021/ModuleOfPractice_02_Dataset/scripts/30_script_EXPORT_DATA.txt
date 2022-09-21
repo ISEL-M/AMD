@@ -1,0 +1,61 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+--==========================
+-- [PRS: ADAPT]
+-- the file path where to write the data
+\set filePath 'C:/Users/Mihail Ababii/Desktop/Universidade/AMD/02_PracticalClasses_AulasPraticas-20211021/ModuleOfPractice_02_Dataset/Data'
+--==========================
+
+
+--==============================
+-- export to text data file
+--==============================
+-- the COPY SQL statement executes wihin server context and thus uses postgreSQL user's credentials
+-- very important: "\o" psdql statement redirects the STDOUT into a file path - this way it uses client credentials intead of server credentials
+\o :filePath/slash_o.txt
+Select * from r1;
+
+--==============================
+-- the COPY PostgreSQL statement
+-- for detailed information see:
+-- d01_postgresql-9.6-A4.pdf, page 1402, or
+-- http://www.postgresql.org/docs/9.6/static/sql-copy.html
+--==============================
+COPY (Select * from v1) to 'C:/Users/Mihail Ababii/Desktop/Universidade/AMD/02_PracticalClasses_AulasPraticas-20211021/ModuleOfPractice_02_Dataset/Data/copy.txt'
+;
+
+
+
+--==============================
+-- a different solution using the \COPY psql statement
+-- Performs a frontend (client) copy. This is an operation that runs an SQL COPY command,
+-- but instead of the server reading or writing the specified file,
+-- psql reads or writes the file and routes the data between the server and the local file system.
+-- This means that file accessibility and privileges are those of the local user, not the server,
+-- and no SQL superuser privileges are required.
+--
+-- for detailed information see:
+-- d02_psql_withPostgreSQL.pdf, or
+-- http://www.postgresql.org/docs/9.6/static/app-psql.html
+--==============================
+\COPY (Select * from v1) to 'C:/Users/Mihail Ababii/Desktop/Universidade/AMD/02_PracticalClasses_AulasPraticas-20211021/ModuleOfPractice_02_Dataset/Data/slash_copy.txt'
+;
+
+

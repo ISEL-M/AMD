@@ -1,0 +1,146 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+-------------------------------
+-- create the relational schema
+-------------------------------
+DROP TABLE IF EXISTS R2;
+DROP TABLE IF EXISTS R3;
+DROP TABLE IF EXISTS R1;
+DROP TABLE IF EXISTS R4;
+--------------------------------
+
+
+CREATE TABLE R1
+(
+c1 INT NOT NULL,
+c2 VARCHAR( 8 ) NOT NULL,
+c3 VARCHAR( 30 ) NOT NULL
+)
+;
+
+
+CREATE TABLE R2
+(
+c1 VARCHAR( 8 ) NOT NULL,
+c2 VARCHAR( 8 ) NOT NULL,
+c3 VARCHAR( 30 ) NOT NULL
+)
+;
+
+
+CREATE TABLE R3
+(
+c1 DATE NOT NULL
+)
+;
+
+
+CREATE TABLE R4
+(
+c1 INT NOT NULL
+)
+;
+
+
+----------------------------
+-- relationship attributes
+----------------------------
+
+-- R2 -> R1
+ALTER TABLE R2
+ADD C1_R1 INT
+;
+
+
+-- R3 -> R1
+ALTER TABLE R3
+ADD C1_R1 INT NOT NULL DEFAULT -1
+;
+
+
+-- R3 -> R4
+ALTER TABLE R3
+ADD C1_R4 INT NOT NULL DEFAULT -1
+;
+
+
+
+-------------------------------
+-- entity integrity constraints
+-- (primary key and unique)
+-------------------------------
+
+ALTER TABLE R1
+ADD CONSTRAINT pk_R1
+    PRIMARY KEY( C1 )
+;
+
+
+ALTER TABLE R1
+ADD CONSTRAINT ak1_R1
+    UNIQUE( C2 )
+;
+
+
+ALTER TABLE R2
+ADD CONSTRAINT pk_R2
+    PRIMARY KEY( C1, C1_R1 )
+;
+
+
+ALTER TABLE R3
+ADD CONSTRAINT pk_R3
+    PRIMARY KEY( C1_R1, C1_R4 )
+;
+
+
+ALTER TABLE R4
+ADD CONSTRAINT pk_R4
+    PRIMARY KEY( C1 )
+;
+
+
+
+----------------------------------------
+-- referential integrity constraints
+-- (foreign key)
+----------------------------------------
+
+ALTER TABLE R2
+ADD CONSTRAINT fk1_R2
+    FOREIGN KEY( C1_R1 )
+    REFERENCES R1( C1 )
+;
+
+
+ALTER TABLE R3
+ADD CONSTRAINT fk1_R3
+    FOREIGN KEY( C1_R1 )
+    REFERENCES R1( C1 )
+;
+
+
+ALTER TABLE R3
+ADD CONSTRAINT fk2_R3
+    FOREIGN KEY( C1_R4 )
+    REFERENCES R4( C1 )
+;
+

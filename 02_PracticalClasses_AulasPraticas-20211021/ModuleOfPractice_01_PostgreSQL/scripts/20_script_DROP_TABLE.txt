@@ -1,0 +1,47 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--=============
+-- Ligação à BD
+--=============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+--==============================
+-- drop constraints
+--==============================
+ALTER TABLE R3
+DROP CONSTRAINT pk_r3,
+DROP CONSTRAINT fk1_r3,
+DROP CONSTRAINT fk2_r3
+;
+ALTER TABLE R2
+DROP CONSTRAINT fk1_r2
+;
+ALTER TABLE R1
+DROP CONSTRAINT pk_r1,
+DROP CONSTRAINT  ak1_r1
+;
+ALTER TABLE R4
+DROP CONSTRAINT pk_r4
+;
+
+
+
+--==============================
+-- drop tables
+--==============================
+DROP table R3 CASCADE;
+DROP table R1 CASCADE;
+DROP table R2 CASCADE;
+DROP table R4 CASCADE;
+

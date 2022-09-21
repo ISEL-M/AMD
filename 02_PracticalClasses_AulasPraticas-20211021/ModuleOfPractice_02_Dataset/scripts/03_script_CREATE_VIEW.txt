@@ -1,0 +1,190 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+-- additional information about "client_encoding" in:
+-- http://www.postgresql.org/docs/9.6/static/multibyte.html
+\encoding WIN1250
+;
+
+
+
+---------------------------------
+DROP VIEW IF EXISTS v1_dataset;
+DROP VIEW IF EXISTS v1;
+DROP VIEW IF EXISTS v1_domain;
+DROP VIEW IF EXISTS v1_class;
+DROP VIEW IF EXISTS v2_dataset;
+DROP VIEW IF EXISTS v2_attrType;
+DROP VIEW IF EXISTS v1_names;
+DROP TABLE IF EXISTS aux1;
+DROP TABLE IF EXISTS aux2;
+DROP TABLE IF EXISTS aux3;
+DROP TABLE IF EXISTS aux4;
+
+---------------------------------
+
+
+-- complete the following view in order to build
+-- the output data presented below at [OUT]
+--V1
+CREATE VIEW v1( VC1, VC2, VC3 ) AS
+SELECT R2.C1 , R3.C1_R1 , R3.C1
+FROM R3, R2
+WHERE R3.C1_R1=R2.C1_R1
+;
+
+
+
+
+--V1_NAMES
+CREATE TABLE AUX1(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ), 
+c3 VARCHAR( 255 ))
+;
+
+INSERT INTO AUX1( c1, c2, c3 )
+VALUES ( 'VC1', 'VC2', 'VC3' )
+;
+
+CREATE VIEW v1_names( VC1, VC2, VC3 ) AS
+SELECT *
+FROM AUX1
+;
+
+
+
+
+--V1_DOMAIN
+CREATE TABLE AUX2(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ), 
+c3 VARCHAR( 255 ))
+;
+
+INSERT INTO AUX2( c1, c2, c3 )
+VALUES ( 'discrete', 'discrete', 'discrete' )
+;
+
+CREATE VIEW v1_domain( VC1, VC2, VC3 ) AS
+SELECT *
+FROM AUX2
+;
+
+
+
+
+--V1_CLASS
+CREATE TABLE AUX3(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ), 
+c3 VARCHAR( 255 ))
+;
+
+INSERT INTO AUX3( c1, c2, c3 )
+VALUES ( '', '', 'class' )
+;
+
+CREATE VIEW v1_class( VC1, VC2, VC3 ) AS
+SELECT *
+FROM AUX3
+;
+
+
+CREATE VIEW v1_dataset( VC1, VC2, VC3 ) AS
+SELECT * FROM v1_names
+UNION ALL
+SELECT * FROM v1_domain
+UNION ALL
+SELECT cast (VC1  as varchar(255)), cast (VC2  as varchar(255)), cast (VC3  as varchar(255))
+FROM v1
+;
+
+-- after completing the previous code uncomment the following 2 lines
+SELECT VC1, VC2, VC3
+FROM v1_dataset
+;
+
+
+
+--==========================
+-- [OUT] The expected output
+--==========================
+
+--| vc1 | vc2 |    vc3
+--|-----+-----+------------
+--| 111 |   1 | 2012-01-31
+--| 111 |   1 | 2012-02-28
+--| 222 |   2 | 2012-03-31
+--|(3 rows)
+
+
+
+
+-- Follow the "practiceGuide.pdf" until arriving at this goal:
+-- create the "dataset view" compatible with the Orange "3-Row-Header" format
+CREATE OR REPLACE VIEW v1_dataset( VC1, VC2, VC3 ) AS
+SELECT * FROM v1_names
+UNION ALL
+SELECT * FROM v1_domain
+UNION ALL
+(SELECT * FROM v1_class LIMIT 1)
+UNION ALL
+SELECT cast (VC1  as varchar(255)), cast (VC2  as varchar(255)), cast (VC3  as varchar(255))
+FROM v1
+;
+
+-- after completing the previous code uncomment the following 2 lines
+SELECT VC1, VC2, VC3
+FROM v1_dataset
+;
+
+
+
+
+-- Follow the "practiceGuide.pdf" until arriving at this goal:
+-- create the "dataset view" compatible with the Orange "Header-with-Attribute-Type" format
+
+CREATE TABLE AUX4(
+c1 VARCHAR( 255 ),
+c2 VARCHAR( 255 ), 
+c3 VARCHAR( 255 ))
+;
+
+INSERT INTO AUX4( c1, c2, c3 )
+VALUES ( 'D#vc1', 'D#vc2', 'Dc#vc3' )
+;
+
+CREATE VIEW v2_attrType( VC1, VC2, VC3 ) AS
+SELECT * FROM AUX4
+;
+
+CREATE VIEW v2_dataset( VC1, VC2, VC3 ) AS
+SELECT * FROM v2_attrType
+UNION ALL
+SELECT cast (VC1  as varchar(255)), cast (VC2  as varchar(255)), cast (VC3  as varchar(255))
+FROM v1
+;
+
+-- after completing the previous code uncomment the following 2 lines
+SELECT VC1, VC2, VC3
+FROM v2_dataset
+;
+
+
+

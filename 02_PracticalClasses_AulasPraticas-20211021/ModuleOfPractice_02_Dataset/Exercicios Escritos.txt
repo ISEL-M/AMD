@@ -1,0 +1,4 @@
+O comando copy impõe ao servidor PostgreSQL que leia ou grave no arquivo diretamente,ou seja,o arquivo tem de ser acessível ao usuário do PostgreSQL.
+
+Ao criar uma view estamos a associar a VIEW a uma dada tabela, pelo que ao alterar a tabela a view tambem irá ser alterada,
+isto é ao adicionar/remover um tupolo da tabela, o tupolo tambem irá aparece na view caso respeite as condiçoes da view.

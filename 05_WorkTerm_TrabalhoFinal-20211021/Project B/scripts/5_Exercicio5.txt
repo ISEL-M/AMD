@@ -1,0 +1,61 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_operational
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+--==========================
+-- [PRS: ADAPT]
+-- the file path where to write the data
+--\set filePath 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\Project B\Dataset\market_basket.csv'
+--==========================
+
+
+--==============================
+-- export to text data file
+--==============================
+-- the COPY SQL statement executes wihin server context and thus uses postgreSQL user's credentials
+-- very important: "\o" psdql statement redirects the STDOUT into a file path - this way it uses client credentials intead of server credentials
+--\o :filePath
+
+--==============================
+-- the COPY PostgreSQL statement
+-- for detailed information see:
+-- d01_postgresql-9.6-A4.pdf, page 1402, or
+-- http://www.postgresql.org/docs/9.6/static/sql-copy.html
+--==============================
+COPY (Select * from v1_dataset) to 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\Project B\Dataset\market_basket.txt' DELIMITER ';';
+COPY (Select * from v2_dataset) to 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\Project B\Dataset\market_basket2.txt' DELIMITER ';';
+
+
+
+
+--==============================
+-- a different solution using the \COPY psql statement
+-- Performs a frontend (client) copy. This is an operation that runs an SQL COPY command,
+-- but instead of the server reading or writing the specified file,
+-- psql reads or writes the file and routes the data between the server and the local file system.
+-- This means that file accessibility and privileges are those of the local user, not the server,
+-- and no SQL superuser privileges are required.
+--
+-- for detailed information see:
+-- d02_psql_withPostgreSQL.pdf, or
+-- http://www.postgresql.org/docs/9.6/static/app-psql.html
+--==============================
+--\COPY (Select * from v1_dataset) to 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\dataset\export2.csv' With CSV DELIMITER ',' HEADER;
+--\COPY (Select * from v1_dataset) to 'C:\Users\Mihail Ababii\Desktop\Universidade\AMD\05_WorkTerm_TrabalhoFinal-20211021\dataset\export2.tab' With CSV DELIMITER '	' HEADER;
+
+

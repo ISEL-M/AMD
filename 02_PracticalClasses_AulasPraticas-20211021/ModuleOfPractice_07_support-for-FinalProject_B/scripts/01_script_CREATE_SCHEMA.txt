@@ -1,0 +1,57 @@
+--#############
+--# Paulo Trigo
+--#############
+
+
+
+--==============
+-- DB connection
+--==============
+\set dataBase db_e_commerce_sample
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+--==========================
+
+
+
+-------------------------------
+-- create the relational schema
+-------------------------------
+DROP TABLE IF EXISTS TRACK;
+--------------------------------
+CREATE TABLE TRACK
+(
+	tracking_record_id int NOT NULL,
+	date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+	user_gui VARCHAR,
+	campaign_id VARCHAR,
+	product_gui VARCHAR NOT NULL,
+	company VARCHAR NOT NULL,
+	link VARCHAR,
+	tracking_id VARCHAR NOT NULL,
+	meio VARCHAR NOT NULL,
+	ip VARCHAR NOT NULL,
+	browser VARCHAR NOT NULL,
+	session_id VARCHAR NOT NULL,
+	referer VARCHAR,
+	cookie_id VARCHAR NOT NULL
+);
+
+
+
+
+-------------------------------
+-- entity integrity constraints
+-- (primary key and unique)
+-------------------------------
+
+ALTER TABLE TRACK
+ADD CONSTRAINT pk_TRACK
+	PRIMARY KEY (tracking_record_id)
+;
+
+
